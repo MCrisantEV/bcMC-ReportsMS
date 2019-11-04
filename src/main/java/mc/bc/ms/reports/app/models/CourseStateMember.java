@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Document(collection = "institutes")
-public class CourseStateStudent {
+public class CourseStateMember {
 	private String institute;
-	private List<StudentState> listStudents;
+	private List<StudentState> listMember;
 }

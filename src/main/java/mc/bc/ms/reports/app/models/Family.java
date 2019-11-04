@@ -1,4 +1,4 @@
-package mc.bc.ms.reports.app.impl;
+package mc.bc.ms.reports.app.models;
 
 import lombok.Data;
 
