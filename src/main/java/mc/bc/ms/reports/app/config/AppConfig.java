@@ -3,8 +3,10 @@ package mc.bc.ms.reports.app.config;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
+@Configuration
 public class AppConfig {
 	
 	@Value("${personPort:8004}")
@@ -15,6 +17,9 @@ public class AppConfig {
 	
 	@Value("${coursePort:8002}")
 	private String coursePort;
+	
+	@Value("${familyPort:8006}")
+	private String familyPort;
 
 	@Bean
 	@Qualifier("person")
@@ -32,6 +37,12 @@ public class AppConfig {
 	@Qualifier("course")
 	public WebClient wcCourse() {
 		return WebClient.create("http://localhost:" + coursePort + "/courses");
+	}
+	
+	@Bean
+	@Qualifier("family")
+	public WebClient wcFamily() {
+		return WebClient.create("http://localhost:" + familyPort + "/personfamily");
 	}
 	
 }
