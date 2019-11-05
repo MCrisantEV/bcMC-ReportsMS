@@ -18,11 +18,11 @@ import mc.bc.ms.reports.app.models.Course;
 import mc.bc.ms.reports.app.models.CourseStatePerson;
 import mc.bc.ms.reports.app.models.CourseStatePerson2;
 import mc.bc.ms.reports.app.repositories.InstituteRepository;
-import mc.bc.ms.reports.app.services.CourseStateMemberServ;
+import mc.bc.ms.reports.app.services.CourseStateTeacherServ;
 import reactor.core.publisher.Mono;
 
 @Service
-public class CourseStateMemberImpl implements CourseStateMemberServ {
+public class CourseStateTeacherImpl implements CourseStateTeacherServ {
 
 	@Autowired
 	private InstituteRepository intRep;
@@ -40,8 +40,8 @@ public class CourseStateMemberImpl implements CourseStateMemberServ {
 	private WebClient wcInscription;
 
 	@Override
-	public Mono<CourseStatePerson> reportCourseStateMember(String id) {
-		String url = "/members/" + id;
+	public Mono<CourseStatePerson> reportCourseStateTeacher(String id) {
+		String url = "/teachers/" + id;
 
 		return intRep.findById(id).map(dbi -> {
 			CourseStatePerson csp = new CourseStatePerson();
@@ -50,24 +50,21 @@ public class CourseStateMemberImpl implements CourseStateMemberServ {
 		}).flatMap(csp -> {
 			return wcFamily.get().uri(url).accept(APPLICATION_JSON_UTF8).retrieve().bodyToFlux(Family.class)
 					.flatMap(dbf -> {
-						return wcInscription.get().uri("/members/" + dbf.getId() + "/" + id)
-								.accept(APPLICATION_JSON_UTF8).retrieve().bodyToFlux(Course.class).flatMap(dbins -> {
-									return wcCourse.get().uri("/" + dbins.getId()).accept(APPLICATION_JSON_UTF8)
-											.retrieve().bodyToFlux(Course.class).map(dbc -> {
-												PersonState ps = new PersonState();
-												ps.setId(dbf.getId());
-												ps.setPerson(dbf.getNames() + " " + dbf.getLastNames());
-												if (dbc.getState().equals("Open")) {
-													ps.setOpen(1);
-												}
-												if (dbc.getState().equals("Active")) {
-													ps.setActive(1);
-												}
-												if (dbc.getState().equals("Complete")) {
-													ps.setComplete(1);
-												}
-												return ps;
-											});
+						return wcCourse.get().uri("/teachers/" + dbf.getId() + "/" + id).accept(APPLICATION_JSON_UTF8)
+								.retrieve().bodyToFlux(Course.class).map(dbc -> {
+									PersonState ps = new PersonState();
+									ps.setId(dbf.getId());
+									ps.setPerson(dbf.getNames() + " " + dbf.getLastNames());
+									if (dbc.getState().equals("Open")) {
+										ps.setOpen(1);
+									}
+									if (dbc.getState().equals("Active")) {
+										ps.setActive(1);
+									}
+									if (dbc.getState().equals("Complete")) {
+										ps.setComplete(1);
+									}
+									return ps;
 								});
 					}).collectList().map(lss -> {
 						List<String> listDni = new ArrayList<>();
@@ -109,8 +106,8 @@ public class CourseStateMemberImpl implements CourseStateMemberServ {
 	}
 
 	@Override
-	public Mono<CourseStatePerson2> reportCourseStateMemberOp2(String id) {
-		String url = "/members/" + id;
+	public Mono<CourseStatePerson2> reportCourseStateTeacherOp2(String id) {
+		String url = "/teachers/" + id;
 
 		return intRep.findById(id).map(dbi -> {
 			CourseStatePerson2 csp = new CourseStatePerson2();
@@ -119,17 +116,14 @@ public class CourseStateMemberImpl implements CourseStateMemberServ {
 		}).flatMap(csp -> {
 			return wcFamily.get().uri(url).accept(APPLICATION_JSON_UTF8).retrieve().bodyToFlux(Family.class)
 					.flatMap(dbf -> {
-						return wcInscription.get().uri("/members/" + dbf.getId() + "/" + id)
-								.accept(APPLICATION_JSON_UTF8).retrieve().bodyToFlux(Course.class).flatMap(dbins -> {
-									return wcCourse.get().uri("/" + dbins.getId()).accept(APPLICATION_JSON_UTF8)
-											.retrieve().bodyToFlux(Course.class).map(dbc -> {
-												PersonState2 ps = new PersonState2();
-												ps.setId(dbf.getId());
-												ps.setPerson(dbf.getNames() + " " + dbf.getLastNames());
-												ps.setState(dbc.getState());
-												ps.setCourse(dbc.getName());
-												return ps;
-											});
+						return wcCourse.get().uri("/teachers/" + dbf.getId() + "/" + id).accept(APPLICATION_JSON_UTF8)
+								.retrieve().bodyToFlux(Course.class).map(dbc -> {
+									PersonState2 ps = new PersonState2();
+									ps.setId(dbf.getId());
+									ps.setPerson(dbf.getNames() + " " + dbf.getLastNames());
+									ps.setState(dbc.getState());
+									ps.setCourse(dbc.getName());
+									return ps;
 								});
 					}).collectList().map(lss -> {
 						csp.setListPerson(lss);
@@ -139,4 +133,3 @@ public class CourseStateMemberImpl implements CourseStateMemberServ {
 	}
 
 }
-

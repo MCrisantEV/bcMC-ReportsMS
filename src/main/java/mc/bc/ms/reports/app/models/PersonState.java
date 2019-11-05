@@ -3,10 +3,10 @@ package mc.bc.ms.reports.app.models;
 import lombok.Data;
 
 @Data
-public class StudentState {
+public class PersonState {
 	
 	private String id;
-	private String student;
+	private String person;
 	private int open;
 	private int active;
 	private int complete;
