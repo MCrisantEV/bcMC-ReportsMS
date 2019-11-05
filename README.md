@@ -4,8 +4,10 @@ El Microservicio Reports, contiene varias APIs las cuales devuelven un archivo j
 
 - API Report CourseStateStudent
 	- Opcion 1 : Resumen de Totales
-	- OPcion 2 :  Resumen de Detallados 
+	- OPcion 2 :  Resumen Detallado 
 - API Report CourseStateFamilyMember
+	- Opcion 1 : Resumen de Totales
+	- OPcion 2 :  Resumen Detallado
 - API Report CourseStateTeacher
 - API Report CourseFamilyMember
 - API Report FullEvaluation
