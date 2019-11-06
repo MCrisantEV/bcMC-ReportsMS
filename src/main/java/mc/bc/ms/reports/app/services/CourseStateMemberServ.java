@@ -10,4 +10,6 @@ public interface CourseStateMemberServ {
 	
 	public Mono<CourseStatePerson2> reportCourseStateMemberOp2(String id);
 	
+	public Mono<CourseStatePerson2> reportCourseMemberType(String id);
+	
 }

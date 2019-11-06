@@ -138,5 +138,35 @@ public class CourseStateMemberImpl implements CourseStateMemberServ {
 		});
 	}
 
+	@Override
+	public Mono<CourseStatePerson2> reportCourseMemberType(String id) {
+		String url = "/members/" + id;
+
+		return intRep.findById(id).map(dbi -> {
+			CourseStatePerson2 csp = new CourseStatePerson2();
+			csp.setInstitute(dbi.getInstitute());
+			return csp;
+		}).flatMap(csp -> {
+			return wcFamily.get().uri(url).accept(APPLICATION_JSON_UTF8).retrieve().bodyToFlux(Family.class)
+					.flatMap(dbf -> {
+						return wcInscription.get().uri("/members/" + dbf.getId() + "/" + id)
+								.accept(APPLICATION_JSON_UTF8).retrieve().bodyToFlux(Course.class).flatMap(dbins -> {
+									return wcCourse.get().uri("/" + dbins.getId()).accept(APPLICATION_JSON_UTF8)
+											.retrieve().bodyToFlux(Course.class).map(dbc -> {
+												PersonState2 ps = new PersonState2();
+												ps.setId(dbf.getId());
+												ps.setPerson(dbf.getNames() + " " + dbf.getLastNames());
+												ps.setState(dbf.getRelationship());
+												ps.setCourse(dbc.getName());
+												return ps;
+											});
+								});
+					}).collectList().map(lss -> {
+						csp.setListPerson(lss);
+						return csp;
+					});
+		});
+	}
+
 }
 

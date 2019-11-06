@@ -60,5 +60,11 @@ public class ReportsControllers {
 	public Mono<CourseStatePerson2> reportCourseStatePersonOp2(@PathVariable String id){
 		return cstServ.reportCourseStateTeacherOp2(id);
 	}
+	
+//	Cursos tomados por familiares por estudiante o profesor 
+	@GetMapping("/cftype/{id}")
+	public Mono<CourseStatePerson2> reportCourseMemberType(@PathVariable String id){
+		return csmServ.reportCourseMemberType(id);
+	}
 
 }
