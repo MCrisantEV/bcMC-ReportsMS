@@ -12,7 +12,7 @@ El Microservicio Reports, contiene varias APIs las cuales devuelven un archivo j
 	- Opcion 1 : Resumen de Totales
 	- OPcion 2 :  Resumen Detallado
 - API Report CourseMemberType
-- API Report FullEvaluation
+- API Report FullEvaluationCourse
 - API Report FullInstitute
 
 Configuraciones

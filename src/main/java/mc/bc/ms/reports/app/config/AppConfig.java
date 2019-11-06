@@ -20,6 +20,9 @@ public class AppConfig {
 	
 	@Value("${familyPort:8006}")
 	private String familyPort;
+	
+	@Value("${evaluationPort:8007}")
+	private String evaluationPort;
 
 	@Bean
 	@Qualifier("person")
@@ -43,6 +46,12 @@ public class AppConfig {
 	@Qualifier("family")
 	public WebClient wcFamily() {
 		return WebClient.create("http://localhost:" + familyPort + "/personfamily");
+	}
+	
+	@Bean
+	@Qualifier("evaluation")
+	public WebClient wcEvaluation() {
+		return WebClient.create("http://localhost:" + evaluationPort + "/evaluations");
 	}
 	
 }
