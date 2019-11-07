@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "d4135166-3972-4bd7-9002-22e7328ddf72",
+		"name": "Reports",
+		"description": "Reportes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8008/reports/csstudent/op1/5db5b62b44868d2f485df761",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/csstudent/op1/5db5b62b44868d2f485df761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"csstudent",
+						"op1",
+						"5db5b62b44868d2f485df761"
+					]
+				},
+				"description": "Reporte del total de Estados de los Curso por Student"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/reports/csstudent/op2/5db5b62b44868d2f485df761",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/csstudent/op2/5db5b62b44868d2f485df761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"csstudent",
+						"op2",
+						"5db5b62b44868d2f485df761"
+					]
+				},
+				"description": "Reporte detallado de estados por cursos por estudiante"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/reports/csmember/op1/5db5b62b44868d2f485df761",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/csmember/op1/5db5b62b44868d2f485df761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"csmember",
+						"op1",
+						"5db5b62b44868d2f485df761"
+					]
+				},
+				"description": "busca el total de todos los estados de los cursos por familiares que pertenecen a uana institutcion"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/reports/csmember/op2/5db5b62b44868d2f485df761",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/csmember/op2/5db5b62b44868d2f485df761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"csmember",
+						"op2",
+						"5db5b62b44868d2f485df761"
+					]
+				},
+				"description": "Reporte detallado por estado por curso de cada familiar"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/reports/csteachers/op1/5db5b62b44868d2f485df761",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/csteachers/op1/5db5b62b44868d2f485df761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"csteachers",
+						"op1",
+						"5db5b62b44868d2f485df761"
+					]
+				},
+				"description": "Reporte totales de estado por curso por profesor"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/reports/csteachers/op2/5db5b62b44868d2f485df761",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/csteachers/op2/5db5b62b44868d2f485df761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"csteachers",
+						"op2",
+						"5db5b62b44868d2f485df761"
+					]
+				},
+				"description": "reporte detallado de estado por curso por profesor"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/reports/cftype/5db5b62b44868d2f485df761",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/cftype/5db5b62b44868d2f485df761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"cftype",
+						"5db5b62b44868d2f485df761"
+					]
+				},
+				"description": "Busca a todos los familiares que tiene un curso y los identifica si pertenecen a un estudiante o profesor"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/reports/evaluations/course/5db6138a44868d3830fa5394/5db5b62b44868d2f485df761",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/evaluations/course/5db6138a44868d3830fa5394/5db5b62b44868d2f485df761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"evaluations",
+						"course",
+						"5db6138a44868d3830fa5394",
+						"5db5b62b44868d2f485df761"
+					]
+				},
+				"description": "Reporte detallado del curso"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/reports/evaluations/institute",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/reports/evaluations/institute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"reports",
+						"evaluations",
+						"institute"
+					]
+				},
+				"description": "Reporte detallado por instituto"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

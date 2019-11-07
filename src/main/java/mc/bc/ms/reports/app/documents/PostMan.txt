@@ -1,0 +1,30 @@
+Configuracion de puertos
+- Local: 8008
+- Config Server: 8908
+
+1. Reporte del total de Estados por Curso por estudiante
+-> https://localhost:8908/reports/csstudent/op1/{id_instituto}
+
+2. Reporte detallado de estados por cursos por estudiante
+-> http://localhost:8908/reports/csstudent/op2/{id_instituto}
+
+3. Reporte del total de estados por cursos por familiares
+-> http://localhost:8908/reports/csmember/op1/{id_instituto}
+
+4. Reporte detallado de estados por cursos por familiares
+-> http://localhost:8908/reports/csmember/op2/{id_instituto}
+
+5. Reporte del total de Estados por Curso por profesor
+-> http://localhost:8908/reports/csteachers/op1/{id_instituto}
+
+6. Reporte detallado de estados por cursos por profesor
+-> http://localhost:8908/reports/csteachers/op2/{id_instituto}
+
+7. Busca a todos los familiares que tiene un curso y los identifica si pertenecen a un estudiante o profesor
+-> http://localhost:8908/reports/cftype/{id_instituto}
+
+8. Reporte detallado de notas del curso
+-> http://localhost:8908/reports/evaluations/course/{id_curso}/{id_instituto}
+
+9. Reporte detallado por instituto
+-> http://localhost:8908/reports/evaluations/institute

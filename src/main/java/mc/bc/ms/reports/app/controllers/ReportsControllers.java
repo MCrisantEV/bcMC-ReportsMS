@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 import mc.bc.ms.reports.app.models.CourseStatePerson;
 import mc.bc.ms.reports.app.models.CourseStatePerson2;
 import mc.bc.ms.reports.app.models.EvaluationsCourse;
+import mc.bc.ms.reports.app.models.EvaluationsInstitute;
 import mc.bc.ms.reports.app.services.CourseStateMemberServ;
 import mc.bc.ms.reports.app.services.CourseStateStudentServ;
 import mc.bc.ms.reports.app.services.CourseStateTeacherServ;
 import mc.bc.ms.reports.app.services.FullEvaluationsService;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -76,6 +78,11 @@ public class ReportsControllers {
 	@GetMapping("/evaluations/course/{course}/{institute}")
 	public Mono<EvaluationsCourse> reportEvaluationsCourse(@PathVariable String course,@PathVariable String institute){
 		return feServ.reportEvaluationsCourse(institute, course);
+	}
+//	Reporte de evaluaciones por instituto
+	@GetMapping("/evaluations/institute")
+	public Flux<EvaluationsInstitute> reportEvaluationsInstitute(){
+		return feServ.reportEvaluationsInstitute();
 	}
 
 }
